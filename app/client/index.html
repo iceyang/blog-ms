@@ -1,0 +1,76 @@
+<style>
+  .row {
+    margin-bottom: 10px;
+  }
+  input.disk-warning {
+    color: blue;
+  }
+  input.disk-danger {
+    color: red;
+  }
+</style>
+<ol class="breadcrumb">
+  <li><a href="#/">Server</a></li>
+  <li class="active">{{clientId}}</li>
+</ol>
+
+<div class="col-sm-3 col-md-2 sidebar">
+  <p><b>基本信息</b></p>
+  <p><a href="#/clients/{{clientId}}/cpu"><b>CPU</b></a></p>
+  <p><a href="#/clients/{{clientId}}/memory"><b>内存</b></a></p>
+  <!--<p><a href="#/clients/{{clientId}}/disk"><b>硬盘</b></a></p>-->
+  <p><a href="#/clients/{{clientId}}/network"><b>网络</b></a></p>
+</div>
+
+<div class="col-sm-10 main">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">系统：</span>
+        <input readonly type="text" class="form-control" ng-model="system.systemRelease" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">外网IP:</span>
+        <input readonly type="text" class="form-control" value='{{network.ip}}' />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">内存:</span>
+        <input readonly type="text" class="form-control" value='{{memory.memTotal}}' />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">CPU:</span>
+        <input readonly type="text" class="form-control" value='类型: {{cpu.modelName}}' />
+        <input readonly type="text" class="form-control" value="架构: {{cpu.architecture}}" />
+        <input readonly type="text" class="form-control" value='核心数: {{cpu.cpuS}}' />
+        <input readonly type="text" class="form-control" value='主频: {{cpu.cpuMHz}}MHz' />
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <b>硬盘</b>
+  <div class="row" ng-repeat="disk in disks">
+    <div class="col-md-12">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">{{disk.fileSystem}}</span>
+        <input readonly type="text" class="form-control" value='容量: {{disk.size}}' />
+        <input readonly type="text" class="form-control disk-danger" ng-if="disk.waringType == 'danger'" value='已用: {{disk.used}}' />
+        <input readonly type="text" class="form-control disk-warning" ng-if="disk.waringType == 'warning'" value='已用: {{disk.used}}' />
+        <input readonly type="text" class="form-control" ng-if="disk.waringType == 'normal'" value='已用: {{disk.used}}' />
+        <input readonly type="text" class="form-control" value='可用: {{disk.avail}}' />
+        <input readonly type="text" class="form-control" value='挂载位置: {{disk.mounted}}' />
+      </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+</div>

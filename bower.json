@@ -1,0 +1,14 @@
+{
+  "name": "blog-ms",
+  "description": "",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "~3.3.0",
+    "angular-toasty": "~1.0.2",
+    "angular": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "angular-resource": "~1.4.4",
+    "ngprogress": "~1.1.2",
+    "async": "~1.4.2"
+  }
+}
