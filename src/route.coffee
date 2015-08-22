@@ -2,8 +2,6 @@ request = require 'request'
 async = require 'async'
 httpProxy = require 'http-proxy'
 
-clients = (require './config').clients
-
 _oneHour = 60 * 60 * 1000
 
 blogServer =

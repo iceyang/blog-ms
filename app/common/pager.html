@@ -1,0 +1,13 @@
+<ul class="pagination">
+    <li ng-class="{disabled:isFirst}">
+        <a href="javascript:void(0)" ng-click="to(1)">&laquo;</a>
+    </li>
+    <li class="disabled" ng-show="hasMorePrev"><a href="javascript:void(0)">…</a></li>
+    <li ng-repeat="item in items" ng-class="{active:item === current}">
+        <a href="javascript:void(0)" ng-click="to(item)">{{item}}</a>
+    </li>
+    <li class="disabled" ng-show="hasMoreNext"><a href="javascript:void(0)">…</a></li>
+    <li ng-class="{disabled:isLast}">
+        <a href="javascript:void(0)" ng-click="to(total)">&raquo;</a>
+    </li>
+</ul>

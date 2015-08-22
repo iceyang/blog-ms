@@ -1,0 +1,54 @@
+body {
+  padding-top: 10px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+   padding: 0;
+}
+
+.modal-lg {
+  width: 1024px;
+}
+
+
+.navbar-red {
+  background-color: #fff;
+  border-bottom: 2px solid #e03e3f;
+}
+
+.navbar-red  a{
+    /*color: #FFF !important;*/
+}
+
+.navbar-red  a:hover {
+    color: #e03e3f !important;
+}
+
+.list-simple li{
+  border-bottom: 1px #eee solid;
+  padding: 5px;
+}
+
+.list-simple-editable li{
+  cursor: pointer;
+}
+.list-simple-editable li:hover{
+  background: #fcfcfc;
+}
+
+
+.upload-contain { border-radius: 15px; width: 95px; height: 95px; }
+.upload-contain img { width: 95px; height: 95px; }
+
+
+.md-dialog .ngdialog-content {
+    width: 700px !important;
+}
+
+
+.thumbnail-contain { width: 120px; height: 90px; border: #eee 1px solid; overflow: hidden;position: absolute; }
+.thumbnail-contain img { max-width: 120px; max-height: 90px; }
