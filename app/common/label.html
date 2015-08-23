@@ -1,0 +1,5 @@
+<span class="label label-success" ng-repeat="label in labels" style="margin-right: 3px;">
+    {{label}}
+    <span class="glyphicon glyphicon-remove" ng-click="remove($index)"></span>
+</span>
+<input type="text" style="border: 0" ng-keypress="create($event)" ng-model="temp"/>

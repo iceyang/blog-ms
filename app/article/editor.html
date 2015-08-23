@@ -1,4 +1,80 @@
-<ol class="breadcrumb">
-  <li><a href="#/">首页</a></li>
-  <li class="active">{{article._id ? '修改文章（' + article.title + '）' : '新增文章'}}</li>
-</ol>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{article._id ? '修改文章（' + article._id + '）' : '新增文章'}}
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="input-group input-group-sm calculate">
+        <span class="input-group-addon">标题：</span>
+        <input type="text" class="form-control" ng-model="article.title" required/>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">创建时间：</span>
+        <span class="form-control" readonly>{{article.publishTime | date: 'yyyy-MM-dd HH:mm'}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">分类：</span>
+        <select class="form-control" ng-model="article.category"
+              ng-options="value._id as value.name for value in categories">
+          <option value="">--请选择--</option>
+        </select>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-cog"></span>
+        </span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">更新时间：</span>
+        <span class="form-control" readonly>{{article.lastUpdate | date: 'yyyy-MM-dd HH:mm'}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">标签：</span>
+        <div class="form-control" style="line-height: 1px" labels="article.tags" blog-label></div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <label>
+        <input type="checkbox" ng-model="article.hidden" />
+        <b>隐藏文章</b>
+      </label>
+    </div>
+  </div>
+
+  <div class="row" ng-if="!article._id">
+    <div class="col-md-12">
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon">添加已有标签：</span>
+        <div class="form-control" style="line-height: 1px" labels="article.tags" blog-now-tag></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group">
+        <span class="input-group-addon">正文：</span>
+        <textarea class="form-control" rows="15" ng-model="article.content"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="pull-right btn btn-success" ng-click="save()">保存</button>
+    </div>
+  </div>
+</div>

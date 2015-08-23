@@ -9,6 +9,7 @@
     "angular-route": "~1.4.4",
     "angular-resource": "~1.4.4",
     "async": "~1.4.2",
-    "ngprogress": "~1.1.2"
+    "ngprogress": "~1.1.2",
+    "lodash": "~3.10.1"
   }
 }
